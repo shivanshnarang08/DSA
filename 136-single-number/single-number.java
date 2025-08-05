@@ -1,19 +1,14 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        int count=0;
-        int ans=0;
-        for(int i=0;i<nums.length;i++){
-            count=0;
-            int num=nums[i];
-            for(int j=0;j<nums.length;j++){
-                if(nums[j]==num){
-                    count++;
-                }
-            }
-            if(count<2){
-                ans=num;
+        HashMap<Integer,Integer> hmap=new HashMap<>();
+        for(int num:nums){
+            hmap.put(num,hmap.getOrDefault(num,0)+1);
+        }
+        for(Map.Entry<Integer,Integer> entry: hmap.entrySet()){
+            if(entry.getValue()==1){
+                return entry.getKey();
             }
         }
-        return ans;
+        return -1;
     }
 }
