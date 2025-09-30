@@ -5,7 +5,7 @@ class Solution {
         if(n==1){
             return nums[0];
         }
-        int ans=0;
+        
         for(int i=0;i<nums.length;i++){
             int count=0;
             for(int j=0;j<nums.length;j++){
@@ -14,10 +14,9 @@ class Solution {
                 }
             }
             if(count>n/2){
-                        ans=nums[i];
-                        break;
+                        return nums[i];
                     }
         }
-        return ans;
+        return 1;
     }
 }
