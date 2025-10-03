@@ -4,17 +4,21 @@ class Solution {
         for(int n:nums1){
             hmap.put(n,1);
         }
-        List<Integer> l=new ArrayList<>();
-        for(int n:nums2){
-            if(hmap.containsKey(n) && hmap.get(n)==1){
-                hmap.put(n,0);
-                l.add(n);
+
+        List<Integer> list=new ArrayList<>();
+        for(int i=0;i<nums2.length;i++){
+            if(hmap.containsKey(nums2[i]) && hmap.get(nums2[i])==1){
+                hmap.put(nums2[i],0);
+                list.add(nums2[i]);
             }
         }
-        int[] res=new int[l.size()];
-        for(int i=0;i<l.size();i++){
-            res[i]=l.get(i);
+
+
+         int[] res=new int[list.size()];
+        for(int i=0;i<list.size();i++){
+            res[i]=list.get(i);
         }
+    
         return res;
     }
 }
